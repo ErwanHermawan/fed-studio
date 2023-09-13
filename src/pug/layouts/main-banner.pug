@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------
+  @name: Main Banner
+  -------------------------------------------------------------------------------//
+
+.main-banner
+  .container
+    .main-banner__content
+      h4.main-banner__sub-title Introducing
+      .main-banner__wrapper
+        h1.main-banner__title
+          | !{data.title}
+        p.main-banner__desc
+          | !{data.desc}
+    .main-banner__carousel
+      each val in data.item
+        .main-banner__item
+          img.main-banner__img(src='assets/img/dummy/'+val.img alt=val.alt)/
+
+

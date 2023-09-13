@@ -1,0 +1,72 @@
+//-------------------------------------------------------------------------------
+  @name: Header
+  -------------------------------------------------------------------------------//
+
+-
+  header = {
+    logo: {
+      src: 'studio.png',
+      to: 'index.html',
+      alt: 'Studio'
+    },
+    menu: [
+      {
+        to: 'index.html',
+        text: 'Home',
+        classActive: 'home'
+      },
+      {
+        to: 'about.html',
+        text: 'About',
+        classActive: 'about'
+      },
+      {
+        to: 'portfolio.html',
+        text: 'Portfolio',
+        classActive: 'portfolio'
+      },
+      {
+        to: 'blog.html',
+        text: 'Blog',
+        classActive: 'blog'
+      },
+      {
+        to: 'contact.html',
+        text: 'Contact',
+        classActive: 'contact'
+      }
+    ],
+    button: {
+      to: 'daftar.html',
+      text: 'o'
+    }
+  }
+
+//header
+.header(class="header--"+(headerClass ? headerClass : ''))
+  .container
+    .header__wrapper
+      ='\n'
+      a.header__logo(href=header.logo.to)
+        ='\n'
+        img.header__logo__img(src='assets/img/logo/'+header.logo.src, alt=header.logo.alt)/
+        ='\n'
+      .header__menu
+        ul.header__menu__nav
+          each val in header.menu
+            li.header__menu__item(class=(navActive == val.classActive ? 'header__menu__item--active' : '') class=(val.dropdown !== undefined ? 'header__dropdown' : ''))
+              ='\n'
+              a.header__menu__link(href=val.to) !{val.text}
+              ='\n'
+        .header__menu__btn
+          ='\n'
+          button.header__btn !{header.button.text}
+          ='\n'
+      ='\n'
+      button.burger-menu.js-mobile-menu(type='button')
+        each val in [1, 2, 3]
+          ='\n'
+          span.burger-menu__bar
+        ='\n'
+='\n'
+//end-header

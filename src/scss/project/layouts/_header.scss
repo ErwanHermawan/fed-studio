@@ -1,0 +1,86 @@
+/* ==========================================================================
+Layout: Header
+========================================================================== */
+
+.header {
+  $h: &;
+  background-color: color(primary, 1);
+  color: color(white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  padding: 32px 0;
+  &__wrapper {
+    @include clearfix;
+  }
+  &__logo {
+    display: block;
+    float: left;
+    width: 160px;
+  }
+  &__menu {
+    float: right;
+    font-size: 0;
+    padding: 4px;
+    &__nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &__item {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 40px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &__link {
+      text-decoration: none;
+      text-transform: uppercase;
+      @include font-size(14);
+      @include remove-tap-highlight;
+    }
+    &__btn {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .burger-menu {
+    display: none;
+    @include medium {
+      display: block;
+      float: right;
+      margin-right: -8px;
+    }
+    &__bar {
+      @include medium {
+        .show-menu & {
+          &:nth-child(1) {
+            transform: rotate(135deg) translate(6px, -6px);
+            transition-delay: .1s;
+          }
+          &:nth-child(2) {
+            transform: scale(0);
+            opacity: 0;
+            transition-delay: 0s;
+          }
+          &:nth-child(3) {
+            transform: rotate(-135deg) translate(6px, 6px);
+            transition-delay: .1s;
+          }
+        }
+      }
+    }
+  }
+  &--bg {
+    background-image: url('../img/bg/14.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
